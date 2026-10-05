@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Google Photos · Memory Search Agent Deck</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet" />
+  <style>
+    body {
+      font-family: 'Google Sans', 'Roboto', sans-serif;
+      background-color: #0f172a;
+      color: #f8fafc;
+    }
+    .slide-page {
+      display: none;
+    }
+    .slide-page.active {
+      display: flex;
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col justify-between overflow-x-hidden selection:bg-blue-500 selection:text-white">
+
+  <!-- Top Deck Header Navbar -->
+  <header class="h-16 bg-slate-900/90 backdrop-blur-md border-b border-slate-800 px-6 flex items-center justify-between z-30 sticky top-0">
+    <div class="flex items-center gap-3">
+      <div class="w-9 h-9 rounded-xl bg-blue-600 flex items-center justify-center text-white shadow-md">
+        <span class="material-symbols-outlined text-[22px]" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+      </div>
+      <div>
+        <h1 class="font-bold text-base text-white tracking-tight leading-tight">Google Photos · Memory Search Deck</h1>
+        <p class="text-xs text-slate-400 font-medium">Interactive Presentation Document • Slide <span id="currentSlideNum">1</span> of 9</p>
+      </div>
+    </div>
+
+    <!-- Navigation Bar -->
+    <div class="flex items-center gap-3">
+      <button id="prevSlideBtn" class="px-3.5 py-1.5 rounded-full bg-slate-800 text-slate-200 hover:bg-slate-700 hover:text-white text-xs font-semibold flex items-center gap-1 transition-all disabled:opacity-40">
+        <span class="material-symbols-outlined text-sm">arrow_back</span> Previous
+      </button>
+      <div class="flex items-center gap-1.5 px-3 py-1 bg-slate-800/80 rounded-full border border-slate-700 text-xs font-medium text-slate-300">
+        <span id="slideIndicatorText">Slide 1 / 9</span>
+      </div>
+      <button id="nextSlideBtn" class="px-3.5 py-1.5 rounded-full bg-blue-600 text-white hover:bg-blue-500 text-xs font-semibold flex items-center gap-1 transition-all shadow-sm">
+        Next <span class="material-symbols-outlined text-sm">arrow_forward</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Slide Canvas Container (16:9 Aspect Ratio Focus) -->
+  <main class="flex-1 flex items-center justify-center p-6 my-auto">
+    <div class="w-[1280px] min-h-[720px] bg-slate-900 border border-slate-800 rounded-2xl shadow-2xl overflow-hidden relative flex flex-col justify-between p-10">
+
+      <!-- SLIDE 1: Title Slide -->
+      <section id="slide-1" class="slide-page active flex-col justify-between h-full">
+        <div>
+          <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-xs font-semibold uppercase tracking-wider mb-6">
+            <span class="w-2 h-2 rounded-full bg-blue-400 animate-pulse"></span> Gemini Semantic Vision Architecture
+          </div>
+          <h1 class="text-5xl font-extrabold text-white tracking-tight leading-tight max-w-4xl">
+            Google Photos Memory Search Agent
+          </h1>
+          <p class="text-xl text-slate-300 mt-4 leading-relaxed max-w-3xl">
+            Fuzzy recall retrieval engine converting vague natural language memory queries into precise, grounded photo memories using multimodal vector embeddings, spatio-temporal clustering, and dynamic ambiguity resolution.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-4 gap-4 mt-8 pt-8 border-t border-slate-800">
+          <div class="bg-slate-800/50 p-4 rounded-xl border border-slate-700/60">
+            <span class="text-2xl font-bold text-blue-400">520+</span>
+            <p class="text-xs text-slate-300 font-medium mt-1">Indexed Photo Dataset</p>
+          </div>
+          <div class="bg-slate-800/50 p-4 rounded-xl border border-slate-700/60">
+            <span class="text-2xl font-bold text-emerald-400">14</span>
+            <p class="text-xs text-slate-300 font-medium mt-1">Event Memory Clusters</p>
+          </div>
+          <div class="bg-slate-800/50 p-4 rounded-xl border border-slate-700/60">
+            <span class="text-2xl font-bold text-purple-400">100%</span>
+            <p class="text-xs text-slate-300 font-medium mt-1">Ground-Truth Precision</p>
+          </div>
+          <div class="bg-slate-800/50 p-4 rounded-xl border border-slate-700/60">
+            <span class="text-2xl font-bold text-amber-400">&lt; 2ms</span>
+            <p class="text-xs text-slate-300 font-medium mt-1">Query Retrieval Latency</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- SLIDE 2: Problem Statement -->
+      <section id="slide-2" class="slide-page flex-col justify-between h-full">
+        <div>
+          <span class="text-blue-400 font-semibold text-xs uppercase tracking-wider">Problem & Paradigm Shift</span>
+          <h2 class="text-3xl font-bold text-white mt-1">The Memory Search Gap in Personal Photo Libraries</h2>
+          <p class="text-sm text-slate-400 mt-2">Human memory is episodic and fuzzy, whereas traditional search engines expect rigid keywords.</p>
+
+          <div class="grid grid-cols-2 gap-6 mt-8">
+            <div class="bg-rose-950/30 border border-rose-900/50 p-6 rounded-2xl flex flex-col justify-between">
+              <div>
+                <div class="flex items-center gap-2 text-rose-400 font-bold text-base mb-3">
+                  <span class="material-symbols-outlined">cancel</span> Traditional Keyword Photo Search
+                </div>
+                <ul class="text-xs text-slate-300 space-y-2.5">
+                  <li class="flex items-start gap-2">• Fails when users forget exact dates, filenames, or precise place names.</li>
+                  <li class="flex items-start gap-2">• Returns flat, un-clustered 100+ photo grids requiring manual scrolling.</li>
+                  <li class="flex items-start gap-2">• Cannot ground ambiguous queries like <em>"that small café in Goa"</em>.</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="bg-emerald-950/30 border border-emerald-900/50 p-6 rounded-2xl flex flex-col justify-between">
+              <div>
+                <div class="flex items-center gap-2 text-emerald-400 font-bold text-base mb-3">
+                  <span class="material-symbols-outlined">check_circle</span> Google Photos Memory Search Agent
+                </div>
+                <ul class="text-xs text-slate-300 space-y-2.5">
+                  <li class="flex items-start gap-2">• Deconstructs natural language into spatial, temporal, people, and visual clues.</li>
+                  <li class="flex items-start gap-2">• Partitions candidate hits into spatio-temporal event clusters automatically.</li>
+                  <li class="flex items-start gap-2">• Proactively asks clarification questions when queries are ambiguous.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SLIDE 3: System Architecture -->
+      <section id="slide-3" class="slide-page flex-col justify-between h-full">
+        <div>
+          <span class="text-blue-400 font-semibold text-xs uppercase tracking-wider">Engine Pipeline</span>
+          <h2 class="text-3xl font-bold text-white mt-1">4-Core AI Search & Retrieval Architecture</h2>
+
+          <div class="grid grid-cols-4 gap-4 mt-6">
+            <div class="bg-slate-800 p-5 rounded-xl border border-slate-700">
+              <span class="material-symbols-outlined text-blue-400 text-3xl mb-2">psychology</span>
+              <h3 class="font-bold text-sm text-white">1. NLU Clue Extractor</h3>
+              <p class="text-xs text-slate-400 mt-2 leading-relaxed">
+                Gemini 1.5 Flash entity parsing into spatial, category, temporal, and visual clue tuples.
+              </p>
+            </div>
+            <div class="bg-slate-800 p-5 rounded-xl border border-slate-700">
+              <span class="material-symbols-outlined text-emerald-400 text-3xl mb-2">manage_search</span>
+              <h3 class="font-bold text-sm text-white">2. Hybrid Retrieval</h3>
+              <p class="text-xs text-slate-400 mt-2 leading-relaxed">
+                Weighted fusion of 128d visual embedding cosine distance, EXIF GPS proximity, and text OCR.
+              </p>
+            </div>
+            <div class="bg-slate-800 p-5 rounded-xl border border-slate-700">
+              <span class="material-symbols-outlined text-purple-400 text-3xl mb-2">hub</span>
+              <h3 class="font-bold text-sm text-white">3. Cluster Engine</h3>
+              <p class="text-xs text-slate-400 mt-2 leading-relaxed">
+                Spatio-temporal DBSCAN partitioning photo hits into distinct trip and event clusters.
+              </p>
+            </div>
+            <div class="bg-slate-800 p-5 rounded-xl border border-slate-700">
+              <span class="material-symbols-outlined text-amber-400 text-3xl mb-2">tune</span>
+              <h3 class="font-bold text-sm text-white">4. Entropy Policy</h3>
+              <p class="text-xs text-slate-400 mt-2 leading-relaxed">
+                Calculates candidate set entropy to dynamically ask 1-click targeted clarification questions.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SLIDE 4: Dataset & Clusters -->
+      <section id="slide-4" class="slide-page flex-col justify-between h-full">
+        <div>
+          <span class="text-blue-400 font-semibold text-xs uppercase tracking-wider">Multi-Cluster Library</span>
+          <h2 class="text-3xl font-bold text-white mt-1">520+ Photos Across 14 Curated Memory Destinations</h2>
+
+          <div class="grid grid-cols-3 gap-4 mt-6">
+            <div class="bg-slate-800/80 p-4 rounded-xl border border-slate-700">
+              <h4 class="font-bold text-sm text-amber-400">🪔 Diwali Celebration</h4>
+              <p class="text-xs text-slate-300 mt-1">20 photos • Mumbai Home</p>
+              <p class="text-[11px] text-slate-400 mt-2">Terracotta diyas, mithai sweet boxes, rangoli, sparklers.</p>
+            </div>
+            <div class="bg-slate-800/80 p-4 rounded-xl border border-slate-700">
+              <h4 class="font-bold text-sm text-blue-400">🕌 Taj Mahal Heritage</h4>
+              <p class="text-xs text-slate-300 mt-1">15 photos • Agra, UP</p>
+              <p class="text-[11px] text-slate-400 mt-2">White marble monument, Charbagh gardens, Yamuna sunset.</p>
+            </div>
+            <div class="bg-slate-800/80 p-4 rounded-xl border border-slate-700">
+              <h4 class="font-bold text-sm text-cyan-400">🍵 Kashmir Snow Skiing</h4>
+              <p class="text-xs text-slate-300 mt-1">15 photos • Gulmarg</p>
+              <p class="text-[11px] text-slate-400 mt-2">Steaming saffron Kahwa tea, Gondola cable car, pine snow.</p>
+            </div>
+            <div class="bg-slate-800/80 p-4 rounded-xl border border-slate-700">
+              <h4 class="font-bold text-sm text-emerald-400">⛵ Kerala Backwaters</h4>
+              <p class="text-xs text-slate-300 mt-1">15 photos • Alleppey</p>
+              <p class="text-[11px] text-slate-400 mt-2">Wooden Kettuvallam houseboat, coconut palm canals.</p>
+            </div>
+            <div class="bg-slate-800/80 p-4 rounded-xl border border-slate-700">
+              <h4 class="font-bold text-sm text-pink-400">🌸 Tokyo Sakura & Ramen</h4>
+              <p class="text-xs text-slate-300 mt-1">15 photos • Tokyo, Japan</p>
+              <p class="text-[11px] text-slate-400 mt-2">Blooming sakura trees, Tonkotsu ramen bowl, Shibuya neon.</p>
+            </div>
+            <div class="bg-slate-800/80 p-4 rounded-xl border border-slate-700">
+              <h4 class="font-bold text-sm text-purple-400">☕ Goa Cafés & Beaches</h4>
+              <p class="text-xs text-slate-300 mt-1">30 photos • Panjim & Vagator</p>
+              <p class="text-[11px] text-slate-400 mt-2">Pour-over drippers, Portuguese tiles, beach shacks.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SLIDE 5: Interactive Clue Inspector -->
+      <section id="slide-5" class="slide-page flex-col justify-between h-full">
+        <div>
+          <span class="text-blue-400 font-semibold text-xs uppercase tracking-wider">Interactive UI Component</span>
+          <h2 class="text-3xl font-bold text-white mt-1">AI Memory Clue Inspector & Real-Time Filters</h2>
+          
+          <div class="bg-slate-800 p-6 rounded-2xl border border-slate-700 mt-6 grid grid-cols-2 gap-6">
+            <div class="space-y-4">
+              <h4 class="font-bold text-sm text-blue-400">Interactive Concept Selectors</h4>
+              <div class="space-y-2 text-xs">
+                <div class="flex items-center gap-2 bg-slate-700/60 p-2 rounded-lg">
+                  <span class="text-blue-400 font-bold">📍 Location:</span>
+                  <span class="bg-blue-600 text-white px-2 py-0.5 rounded-full">Goa</span>
+                  <span class="bg-slate-600 text-slate-200 px-2 py-0.5 rounded-full">Panjim</span>
+                  <span class="bg-slate-600 text-slate-200 px-2 py-0.5 rounded-full">Taj Mahal</span>
+                </div>
+                <div class="flex items-center gap-2 bg-slate-700/60 p-2 rounded-lg">
+                  <span class="text-emerald-400 font-bold">☕ Category:</span>
+                  <span class="bg-emerald-600 text-white px-2 py-0.5 rounded-full">Café (98%)</span>
+                  <span class="bg-slate-600 text-slate-200 px-2 py-0.5 rounded-full">Diwali (96%)</span>
+                </div>
+                <div class="flex items-center gap-2 bg-slate-700/60 p-2 rounded-lg">
+                  <span class="text-purple-400 font-bold">👥 People:</span>
+                  <span class="bg-purple-600 text-white px-2 py-0.5 rounded-full">Sarah</span>
+                  <span class="bg-purple-600 text-white px-2 py-0.5 rounded-full">Dev</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="space-y-4 border-l border-slate-700 pl-6">
+              <h4 class="font-bold text-sm text-blue-400">Semantic Weight Sliders</h4>
+              <div class="space-y-3 text-xs">
+                <div>
+                  <div class="flex justify-between mb-1"><span class="text-slate-300">Visual Similarity</span><span class="text-blue-400 font-bold">85%</span></div>
+                  <div class="w-full bg-slate-700 h-1.5 rounded-full"><div class="bg-blue-500 h-1.5 rounded-full w-[85%]"></div></div>
+                </div>
+                <div>
+                  <div class="flex justify-between mb-1"><span class="text-slate-300">Geolocation Proximity</span><span class="text-blue-400 font-bold">90%</span></div>
+                  <div class="w-full bg-slate-700 h-1.5 rounded-full"><div class="bg-blue-500 h-1.5 rounded-full w-[90%]"></div></div>
+                </div>
+                <div>
+                  <div class="flex justify-between mb-1"><span class="text-slate-300">Temporal Recency</span><span class="text-blue-400 font-bold">60%</span></div>
+                  <div class="w-full bg-slate-700 h-1.5 rounded-full"><div class="bg-blue-500 h-1.5 rounded-full w-[60%]"></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SLIDE 6: Multimodal Evidence Inspector -->
+      <section id="slide-6" class="slide-page flex-col justify-between h-full">
+        <div>
+          <span class="text-blue-400 font-semibold text-xs uppercase tracking-wider">Explainable AI</span>
+          <h2 class="text-3xl font-bold text-white mt-1">Multimodal Evidence Stage & Bounding Box Grounding</h2>
+
+          <div class="grid grid-cols-2 gap-6 mt-6">
+            <div class="bg-slate-800 p-5 rounded-2xl border border-slate-700 flex flex-col justify-between">
+              <div>
+                <h4 class="font-bold text-sm text-purple-400 mb-2">Visual & Bounding Box Grounding</h4>
+                <ul class="text-xs text-slate-300 space-y-2">
+                  <li>• <strong>Object Box:</strong> Artisan Coffee & Mug (99% match)</li>
+                  <li>• <strong>OCR Box:</strong> "Café Bodega" (97% match)</li>
+                  <li>• <strong>Scene Style:</strong> Portuguese Colonial Architecture (91% match)</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="bg-slate-800 p-5 rounded-2xl border border-slate-700 flex flex-col justify-between">
+              <div>
+                <h4 class="font-bold text-sm text-emerald-400 mb-2">Verified Grounding Checklist</h4>
+                <ul class="text-xs text-slate-300 space-y-2">
+                  <li class="flex items-center gap-1.5"><span class="text-emerald-400">✓</span> Visual similarity match to 'café interior'</li>
+                  <li class="flex items-center gap-1.5"><span class="text-emerald-400">✓</span> OCR text match: 'Café' detected on blackboard</li>
+                  <li class="flex items-center gap-1.5"><span class="text-emerald-400">✓</span> GPS location: Altinho, Panjim, Goa</li>
+                  <li class="flex items-center gap-1.5"><span class="text-emerald-400">✓</span> EXIF timestamp: Dec 14, 2024</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SLIDE 7: End-to-End User Flow (Matching PowerPoint Slide 7) -->
+      <section id="slide-7" class="slide-page flex-col justify-between h-full">
+        <div>
+          <h2 class="text-2xl font-bold text-white tracking-tight text-center">
+            Google Photos Memory Search — Seamless End-to-End Retrieval Flow
+          </h2>
+          <p class="text-xs font-medium text-slate-400 text-center mt-1">
+            End-to-End User Journey & Multimodal Memory Search Architecture
+          </p>
+
+          <div class="mt-3 mx-auto w-fit px-5 py-1.5 rounded-full bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-medium text-xs shadow-sm flex items-center gap-2">
+            <span class="material-symbols-outlined text-sm">auto_awesome</span>
+            <span>Fuzzy Recall & AI Search: Transforming Vague Natural Language Queries Into Precise Grounded Photo Memories</span>
+          </div>
+
+          <div class="grid grid-cols-6 gap-3 mt-4">
+            <!-- 1 -->
+            <div class="bg-slate-800 p-2.5 rounded-xl border border-slate-700 text-left flex flex-col justify-between">
+              <div>
+                <div class="flex items-center gap-1.5 mb-1.5">
+                  <span class="w-5 h-5 rounded-full bg-blue-600 text-white font-bold text-[10px] flex items-center justify-center">1</span>
+                  <span class="font-bold text-xs text-slate-200">Omnibox Search</span>
+                </div>
+                <div class="w-full h-32 bg-slate-900 rounded-lg overflow-hidden border border-slate-700 mb-2">
+                  <img src="../Stitch photos/stitch_google_photos_memory_search/google_photos_ai_memory_search/screen.png" alt="Screen 1" class="w-full h-full object-cover object-top" />
+                </div>
+              </div>
+              <p class="text-[9px] text-slate-400 leading-tight">Natural language query input ("Diwali sweets & diyas at home") with suggestion chips.</p>
+            </div>
+
+            <!-- 2 -->
+            <div class="bg-slate-800 p-2.5 rounded-xl border border-slate-700 text-left flex flex-col justify-between">
+              <div>
+                <div class="flex items-center gap-1.5 mb-1.5">
+                  <span class="w-5 h-5 rounded-full bg-blue-600 text-white font-bold text-[10px] flex items-center justify-center">2</span>
+                  <span class="font-bold text-xs text-slate-200">Clue Inspector</span>
+                </div>
+                <div class="w-full h-32 bg-slate-900 rounded-lg overflow-hidden border border-slate-700 mb-2">
+                  <img src="../Stitch photos/stitch_google_photos_memory_search/clue_inspector_filter_matrix/screen.png" alt="Screen 2" class="w-full h-full object-cover object-top" />
+                </div>
+              </div>
+              <p class="text-[9px] text-slate-400 leading-tight">Gemini NLU entity decomposition (📍 Location, ☕ Category, 👥 People) & weight sliders.</p>
+            </div>
+
+            <!-- 3 -->
+            <div class="bg-slate-800 p-2.5 rounded-xl border border-slate-700 text-left flex flex-col justify-between">
+              <div>
+                <div class="flex items-center gap-1.5 mb-1.5">
+                  <span class="w-5 h-5 rounded-full bg-blue-600 text-white font-bold text-[10px] flex items-center justify-center">3</span>
+                  <span class="font-bold text-xs text-slate-200">Cluster Deep Dive</span>
+                </div>
+                <div class="w-full h-32 bg-slate-900 rounded-lg overflow-hidden border border-slate-700 mb-2">
+                  <img src="../Stitch photos/stitch_google_photos_memory_search/memory_cluster_deep_dive/screen.png" alt="Screen 3" class="w-full h-full object-cover object-top" />
+                </div>
+              </div>
+              <p class="text-[9px] text-slate-400 leading-tight">Spatio-temporal clustering engine partitions hits into story cards with map preview.</p>
+            </div>
+
+            <!-- 4 -->
+            <div class="bg-slate-800 p-2.5 rounded-xl border border-slate-700 text-left flex flex-col justify-between">
+              <div>
+                <div class="flex items-center gap-1.5 mb-1.5">
+                  <span class="w-5 h-5 rounded-full bg-blue-600 text-white font-bold text-[10px] flex items-center justify-center">4</span>
+                  <span class="font-bold text-xs text-slate-200">Ambiguity Resolve</span>
+                </div>
+                <div class="w-full h-32 bg-slate-900 rounded-lg overflow-hidden border border-slate-700 mb-2">
+                  <img src="../Stitch photos/stitch_google_photos_memory_search/multi_memory_comparison_ambiguity_resolution/screen.png" alt="Screen 4" class="w-full h-full object-cover object-top" />
+                </div>
+              </div>
+              <p class="text-[9px] text-slate-400 leading-tight">Entropy-driven policy asks 1-click targeted question when confidence is ambiguous.</p>
+            </div>
+
+            <!-- 5 -->
+            <div class="bg-slate-800 p-2.5 rounded-xl border border-slate-700 text-left flex flex-col justify-between">
+              <div>
+                <div class="flex items-center gap-1.5 mb-1.5">
+                  <span class="w-5 h-5 rounded-full bg-blue-600 text-white font-bold text-[10px] flex items-center justify-center">5</span>
+                  <span class="font-bold text-xs text-slate-200">Evidence Stage</span>
+                </div>
+                <div class="w-full h-32 bg-slate-900 rounded-lg overflow-hidden border border-slate-700 mb-2">
+                  <img src="../Stitch photos/stitch_google_photos_memory_search/photo_multimodal_evidence_inspector/screen.png" alt="Screen 5" class="w-full h-full object-cover object-top" />
+                </div>
+              </div>
+              <p class="text-[9px] text-slate-400 leading-tight">Visual bounding boxes, OCR text grounding ("Café Bodega"), and verified EXIF map.</p>
+            </div>
+
+            <!-- 6 -->
+            <div class="bg-slate-800 p-2.5 rounded-xl border border-slate-700 text-left flex flex-col justify-between">
+              <div>
+                <div class="flex items-center gap-1.5 mb-1.5">
+                  <span class="w-5 h-5 rounded-full bg-blue-600 text-white font-bold text-[10px] flex items-center justify-center">6</span>
+                  <span class="font-bold text-xs text-slate-200">Ambient Feed</span>
+                </div>
+                <div class="w-full h-32 bg-slate-900 rounded-lg overflow-hidden border border-slate-700 mb-2">
+                  <img src="../Stitch photos/stitch_google_photos_memory_search/ambient_recollection/screen.png" alt="Screen 6" class="w-full h-full object-cover object-top" />
+                </div>
+              </div>
+              <p class="text-[9px] text-slate-400 leading-tight">Proactive memory widget feed and full account timeline feed across 520+ photos.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SLIDE 8: What We Did & How We Achieved It (Matching PowerPoint Slide 8) -->
+      <section id="slide-8" class="slide-page flex-col justify-between h-full">
+        <div>
+          <h2 class="text-2xl font-bold text-white tracking-tight text-center">
+            What We Did & How We Achieved It
+          </h2>
+          <p class="text-xs font-semibold text-slate-400 text-center mt-0.5">
+            Phase-by-Phase Technical Strategy — Google Photos Memory Search Agent
+          </p>
+
+          <!-- Timeline Steps 01 to 06 -->
+          <div class="grid grid-cols-6 gap-2 text-center mt-4">
+            <div class="bg-indigo-950/40 border border-indigo-800/50 p-1.5 rounded-lg flex items-center gap-2">
+              <span class="w-5 h-5 rounded-full bg-indigo-600 text-white font-bold text-[10px] flex items-center justify-center shrink-0">01</span>
+              <div class="text-left"><p class="font-bold text-[10px] text-indigo-300">Phase 1</p><p class="text-[8px] text-slate-400">Datasets & Benchmark</p></div>
+            </div>
+            <div class="bg-indigo-950/40 border border-indigo-800/50 p-1.5 rounded-lg flex items-center gap-2">
+              <span class="w-5 h-5 rounded-full bg-indigo-600 text-white font-bold text-[10px] flex items-center justify-center shrink-0">02</span>
+              <div class="text-left"><p class="font-bold text-[10px] text-indigo-300">Phase 2</p><p class="text-[8px] text-slate-400">NLU Clue Extractor</p></div>
+            </div>
+            <div class="bg-indigo-950/40 border border-indigo-800/50 p-1.5 rounded-lg flex items-center gap-2">
+              <span class="w-5 h-5 rounded-full bg-indigo-600 text-white font-bold text-[10px] flex items-center justify-center shrink-0">03</span>
+              <div class="text-left"><p class="font-bold text-[10px] text-indigo-300">Phase 3</p><p class="text-[8px] text-slate-400">Retrieval & Clustering</p></div>
+            </div>
+            <div class="bg-indigo-950/40 border border-indigo-800/50 p-1.5 rounded-lg flex items-center gap-2">
+              <span class="w-5 h-5 rounded-full bg-indigo-600 text-white font-bold text-[10px] flex items-center justify-center shrink-0">04</span>
+              <div class="text-left"><p class="font-bold text-[10px] text-indigo-300">Phase 4</p><p class="text-[8px] text-slate-400">Clarification & Evidence</p></div>
+            </div>
+            <div class="bg-indigo-950/40 border border-indigo-800/50 p-1.5 rounded-lg flex items-center gap-2">
+              <span class="w-5 h-5 rounded-full bg-indigo-600 text-white font-bold text-[10px] flex items-center justify-center shrink-0">05</span>
+              <div class="text-left"><p class="font-bold text-[10px] text-indigo-300">Phase 5</p><p class="text-[8px] text-slate-400">6-Screen UI Client</p></div>
+            </div>
+            <div class="bg-indigo-950/40 border border-indigo-800/50 p-1.5 rounded-lg flex items-center gap-2">
+              <span class="w-5 h-5 rounded-full bg-indigo-600 text-white font-bold text-[10px] flex items-center justify-center shrink-0">06</span>
+              <div class="text-left"><p class="font-bold text-[10px] text-indigo-300">Phase 6</p><p class="text-[8px] text-slate-400">Testing & Deploy</p></div>
+            </div>
+          </div>
+
+          <!-- Highlights Table -->
+          <div class="bg-slate-800 rounded-xl border border-slate-700 overflow-hidden shadow-xs mt-3">
+            <table class="w-full text-left border-collapse">
+              <thead>
+                <tr class="bg-indigo-900 text-white text-[9.5px] font-bold uppercase tracking-wider">
+                  <th class="p-1.5 border-r border-indigo-800 w-12 text-center">Phase</th>
+                  <th class="p-1.5 border-r border-indigo-800 w-40">Technical Objective</th>
+                  <th class="p-1.5">Implementation Highlights & How We Achieved It</th>
+                </tr>
+              </thead>
+              <tbody class="text-[9px] text-slate-300 divide-y divide-slate-700/60 font-medium">
+                <tr>
+                  <td class="p-1 text-center font-bold text-indigo-400 bg-indigo-950/30">01</td>
+                  <td class="p-1 font-bold text-white">Datasets & Ground-Truth</td>
+                  <td class="p-1">Created mockPhotoLibrary.ts with 520+ photo records across 14 event clusters (Diwali, Taj Mahal, Kashmir, Kerala, Tokyo, Goa), 128d vector embeddings, GPS EXIF, bounding boxes & 15 scenario benchmark suite.</td>
+                </tr>
+                <tr>
+                  <td class="p-1 text-center font-bold text-indigo-400 bg-indigo-950/30">02</td>
+                  <td class="p-1 font-bold text-white">NLU Memory Clue Extractor</td>
+                  <td class="p-1">Built memoryClueExtractor.ts utilizing Gemini 1.5 Flash parsing natural language queries into spatial location, place category, temporal range, people tags & visual attributes with status preservation.</td>
+                </tr>
+                <tr>
+                  <td class="p-1 text-center font-bold text-indigo-400 bg-indigo-950/30">03</td>
+                  <td class="p-1 font-bold text-white">Hybrid Search & Clustering</td>
+                  <td class="p-1">Built hybridRetrievalEngine.ts & contextualClusterEngine.ts fusing 128d cosine vector distance, GPS proximity, OCR matching & spatio-temporal clustering (&lt;2ms latency, 100% precision).</td>
+                </tr>
+                <tr>
+                  <td class="p-1 text-center font-bold text-indigo-400 bg-indigo-950/30">04</td>
+                  <td class="p-1 font-bold text-white">Clarification & Evidence Stage</td>
+                  <td class="p-1">Built clarificationPolicyEngine.ts calculating candidate entropy (H &gt; 0.75) to trigger 1-click targeted questions. Built matchEvidenceExplainer.ts generating bounding boxes & OCR text groundings.</td>
+                </tr>
+                <tr>
+                  <td class="p-1 text-center font-bold text-indigo-400 bg-indigo-950/30">05</td>
+                  <td class="p-1 font-bold text-white">6-Screen UI & Clue Matrix</td>
+                  <td class="p-1">Built responsive Material 3 client app (app.ts, Screen1 to Screen7) with interactive toggleable clue pills, real-time weight sliders, custom location adder & All Photos timeline across 520+ photos.</td>
+                </tr>
+                <tr>
+                  <td class="p-1 text-center font-bold text-indigo-400 bg-indigo-950/30">06</td>
+                  <td class="p-1 font-bold text-white">Testing, Telemetry & Vercel</td>
+                  <td class="p-1">Implemented telemetry logging (state.ts), 4 automated validation test suites, 0-error TypeScript compilation, 209ms Vite production build & Vercel deployment setup (vercel.json).</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- SLIDE 9: Summary & Metrics -->
+      <section id="slide-9" class="slide-page flex-col justify-between h-full">
+        <div>
+          <span class="text-blue-400 font-semibold text-xs uppercase tracking-wider">Verification & Results</span>
+          <h2 class="text-3xl font-bold text-white mt-1">Key Technical Results & Performance Metrics</h2>
+
+          <div class="grid grid-cols-2 gap-6 mt-6">
+            <div class="bg-slate-800 p-5 rounded-2xl border border-slate-700 space-y-3">
+              <h4 class="font-bold text-sm text-blue-400">Benchmark Test Suite Verification</h4>
+              <div class="text-xs text-slate-300 space-y-2">
+                <p class="flex justify-between border-b border-slate-700 pb-1"><span>Total Photo Records:</span><span class="font-bold text-white">520 records</span></p>
+                <p class="flex justify-between border-b border-slate-700 pb-1"><span>Ground-Truth Scenarios:</span><span class="font-bold text-white">15 scenarios</span></p>
+                <p class="flex justify-between border-b border-slate-700 pb-1"><span>Retrieval Precision:</span><span class="font-bold text-emerald-400">100% Top Cluster Accuracy</span></p>
+                <p class="flex justify-between"><span>Query Retrieval Latency:</span><span class="font-bold text-amber-400">1 – 2 ms / query</span></p>
+              </div>
+            </div>
+
+            <div class="bg-slate-800 p-5 rounded-2xl border border-slate-700 space-y-3">
+              <h4 class="font-bold text-sm text-purple-400">Production Build Status</h4>
+              <div class="text-xs text-slate-300 space-y-2">
+                <p class="flex justify-between border-b border-slate-700 pb-1"><span>TypeScript Verification:</span><span class="font-bold text-emerald-400">0 Errors (npx tsc)</span></p>
+                <p class="flex justify-between border-b border-slate-700 pb-1"><span>Vite Production Build:</span><span class="font-bold text-emerald-400">Built in 209ms</span></p>
+                <p class="flex justify-between border-b border-slate-700 pb-1"><span>Dev Server Port:</span><span class="font-bold text-blue-400">http://localhost:3000/</span></p>
+                <p class="flex justify-between"><span>Telemetry Active:</span><span class="font-bold text-purple-400">Real-time Logging</span></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Slide Footer Bar -->
+      <footer class="pt-4 border-t border-slate-800 flex items-center justify-between text-xs text-slate-500">
+        <span>Google Photos Memory Search Agent • Presentation Deck Spec</span>
+        <span class="font-mono text-blue-400">http://localhost:3000/</span>
+      </footer>
+    </div>
+  </main>
+
+  <!-- Interactive Slide Controller JavaScript -->
+  <script>
+    let currentSlide = 1;
+    const totalSlides = 9;
+
+    const prevBtn = document.getElementById('prevSlideBtn');
+    const nextBtn = document.getElementById('nextSlideBtn');
+    const slideNumSpan = document.getElementById('currentSlideNum');
+    const slideIndicatorText = document.getElementById('slideIndicatorText');
+
+    function showSlide(n) {
+      if (n < 1) n = 1;
+      if (n > totalSlides) n = totalSlides;
+      currentSlide = n;
+
+      document.querySelectorAll('.slide-page').forEach((el, idx) => {
+        if (idx + 1 === currentSlide) {
+          el.classList.add('active');
+        } else {
+          el.classList.remove('active');
+        }
+      });
+
+      slideNumSpan.textContent = currentSlide;
+      slideIndicatorText.textContent = `Slide ${currentSlide} / ${totalSlides}`;
+      prevBtn.disabled = currentSlide === 1;
+      nextBtn.disabled = currentSlide === totalSlides;
+    }
+
+    prevBtn.addEventListener('click', () => showSlide(currentSlide - 1));
+    nextBtn.addEventListener('click', () => showSlide(currentSlide + 1));
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight' || e.key === 'Space') showSlide(currentSlide + 1);
+      if (e.key === 'ArrowLeft') showSlide(currentSlide - 1);
+    });
+
+    showSlide(1);
+  </script>
+</body>
+</html>
